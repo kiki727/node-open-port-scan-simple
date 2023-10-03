@@ -1,5 +1,7 @@
 const net = require('net');
 
+const TIMEOUT = 1000
+
 function generisiNiz(doBroja) {
     var niz = [];
     for (var i = 1; i <= doBroja; i++) {
@@ -16,7 +18,7 @@ function scanPort(host, port) {
   return new Promise((resolve) => {
     const socket = new net.Socket();
 
-    socket.setTimeout(1000); // Postavljamo timeout za pokušaj povezivanja
+    socket.setTimeout( TIMEOUT ); // Postavljamo timeout za pokušaj povezivanja
 
     socket.on('connect', () => {
       socket.destroy();
